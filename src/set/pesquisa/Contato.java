@@ -3,7 +3,7 @@ package set.pesquisa;
 import java.util.Objects;
 
 public class Contato {
-
+    //atributos
     private String nome;
     private int numero;
 
@@ -20,10 +20,6 @@ public class Contato {
         return numero;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public void setNumero(int numero) {
         this.numero = numero;
     }
@@ -31,21 +27,17 @@ public class Contato {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Contato contato = (Contato) o;
-        return Objects.equals(nome, contato.nome);
+        if (!(o instanceof Contato contato)) return false;
+        return Objects.equals(getNome(), contato.getNome());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome);
+        return Objects.hash(getNome());
     }
 
     @Override
     public String toString() {
-        return "Contato{" +
-                "nome='" + nome + '\'' +
-                ", numero=" + numero +
-                '}';
+        return "{" + nome + "," + numero + "}";
     }
 }
